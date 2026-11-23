@@ -1,0 +1,87 @@
+.search {
+  display: flex;
+  width: clamp(230px, 28vw, 440px);
+  height: 42px;
+  flex: 0 1 clamp(230px, 28vw, 440px);
+  align-items: center;
+  gap: 17px;
+  padding: 0 22px;
+  border: 1px solid var(--color-white-20);
+  border-radius: 24px;
+  background: var(--color-white-08);
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+
+  > span {
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-regular);
+  }
+
+  &:hover:not(:focus-within) {
+    border-color: var(--color-blue);
+  }
+
+  &:focus-within {
+    border-color: var(--color-blue);
+    background: rgb(255 255 255 / 10%);
+    box-shadow: 0 0 0 4px rgb(1 132 207 / 28%);
+  }
+
+  input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--color-text-bold);
+    caret-color: var(--color-blue);
+    font-size: 13px;
+    font-weight: 400;
+
+    &::placeholder {
+      color: var(--color-text-regular);
+      opacity: 1;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  .clearButton {
+    display: grid;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    padding: 4px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-text-regular);
+    cursor: pointer;
+
+    > span {
+      width: 14px;
+      height: 14px;
+    }
+
+    &:hover {
+      color: var(--color-text-bold);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 1px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .search {
+    width: clamp(220px, 32vw, 330px);
+    flex-basis: clamp(220px, 32vw, 330px);
+  }
+}

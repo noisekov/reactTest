@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": false,
+    "sourceMap": false,
+    "outDir": ".test-dist",
+    "rootDir": "src",
+    "types": []
+  },
+  "include": [
+    "src/entities/task/model/task.utils.ts",
+    "src/entities/task/model/task.reducer.ts",
+    "src/entities/task/model/task.types.ts",
+    "src/features/task-search/model/filterTasks.ts"
+  ],
+  "exclude": ["node_modules", "dist", ".test-dist"]
+}

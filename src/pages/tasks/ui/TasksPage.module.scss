@@ -1,0 +1,16 @@
+.page { min-height: 100vh; padding: 32px clamp(22px, 3.2vw, 58px) 26px; }
+.content { width: 100%; max-width: 1920px; min-height: calc(100vh - 58px); margin: 0 auto; }
+.header {
+  display: flex; min-height: 32px; align-items: center; justify-content: space-between;
+  gap: 24px; margin-bottom: 22px;
+
+  h1 {
+    margin: 0; color: var(--color-text-bold); font-size: clamp(23px, 2.4vw, 27px); font-weight: 750;
+    letter-spacing: -.035em; line-height: 1.1; text-shadow: 0 2px 16px rgb(0 0 0 / 35%);
+  }
+}
+@media (max-width: 767px) {
+  .page { padding: 22px 18px; }
+  .content { min-width: 980px; }
+  .header { margin-bottom: 19px; }
+}

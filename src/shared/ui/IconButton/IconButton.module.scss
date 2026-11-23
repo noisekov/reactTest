@@ -1,0 +1,41 @@
+.button {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  padding: 6px;
+  place-items: center;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-text-regular);
+  cursor: pointer;
+  transition: color 140ms ease;
+
+  > span {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.neutral:hover:not(:disabled) {
+  color: var(--color-blue);
+}
+
+.blue:hover:not(:disabled) {
+  color: var(--color-blue);
+}
+
+.danger:hover:not(:disabled) {
+  color: var(--color-red);
+}

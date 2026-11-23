@@ -1,0 +1,89 @@
+.card {
+  position: relative;
+  min-width: 0;
+  border: 1px solid var(--color-white-08);
+  border-radius: 4px;
+  background: var(--color-white-10);
+  color: var(--color-text-bold);
+  cursor: grab;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+
+  &:hover, &:focus-within {
+    border-color: var(--color-blue);
+    background: var(--color-white-10);
+  }
+
+  &:hover { transform: translateY(-1px); }
+  &:active { cursor: grabbing; }
+}
+
+.content {
+  display: grid;
+  width: 100%;
+  gap: 7px;
+  padding: 13px 48px 12px 14px;
+  border: 0;
+  border-radius: inherit;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: grab;
+
+  &:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+}
+
+.dragging {
+  opacity: 0.28;
+  border-color: var(--color-blue);
+  border-style: dashed;
+  box-shadow: 0 0 0 1px rgb(1 132 207 / 18%);
+  transform: scale(0.985);
+}
+
+/* Просроченная задача выделяется красной рамкой; текст остаётся в обычной палитре. */
+.card.overdue,
+.card.overdue:hover,
+.card.overdue:focus-within {
+  border-color: var(--color-red);
+}
+
+.actions {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+  display: flex;
+  gap: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease;
+}
+
+.card:hover .actions, .card:focus-within .actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: none) {
+  .actions { opacity: 1; pointer-events: auto; }
+}
+
+.metaRow, .description {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  font-size: 11px;
+  line-height: 1.45;
+
+  span { color: var(--color-text-regular); }
+  time, strong {
+    min-width: 0;
+    color: var(--color-text-bold);
+    font-size: inherit;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+}
+

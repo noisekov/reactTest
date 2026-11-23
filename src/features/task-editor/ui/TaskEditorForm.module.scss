@@ -1,0 +1,148 @@
+.form {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+  min-height: 164px;
+  align-content: start;
+  padding: 14px;
+  border: 1px solid var(--color-blue);
+  border-radius: 4px;
+  background: var(--color-white-10);
+  color: var(--color-text-bold);
+  box-shadow: 0 0 0 1px rgb(1 132 207 / 8%);
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.label {
+  color: var(--color-text-regular);
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.input,
+.dateInput {
+  min-width: 0;
+  padding: 2px 8px;
+  border: 1px solid var(--color-text-regular);
+  border-radius: 4px;
+  outline: none;
+  background: rgb(0 0 0 / 8%);
+  color: var(--color-text-bold);
+  font-size: 13px;
+  font-weight: 600;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+
+  &::placeholder {
+    color: var(--color-white-20);
+    font-weight: 400;
+  }
+
+  &:hover:not(:focus) {
+    border-color: var(--color-blue);
+  }
+
+  &:focus {
+    border-color: var(--color-blue);
+    background: rgb(255 255 255 / 7%);
+    box-shadow: 0 0 0 1px var(--color-blue);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-red);
+  }
+}
+
+.input {
+  width: min(100%, 205px);
+  height: 22px;
+}
+
+.dateInput {
+  width: min(100%, 205px);
+  height: 22px;
+  padding: 1px 8px;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.descriptionControl {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fieldError,
+.error {
+  color: var(--color-red);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.error {
+  margin: 0 0 0 86px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 1px;
+}
+
+.iconAction {
+  display: grid;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  padding: 10px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-white-10);
+  color: var(--color-text-regular);
+
+  &:hover:not(:disabled) {
+    background: var(--color-white-20);
+    color: var(--color-text-bold);
+  }
+
+  > span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.saveAction {
+  background: var(--color-white-10);
+  color: var(--color-blue);
+
+  &:hover:not(:disabled) {
+    background: var(--color-white-20);
+    color: var(--color-blue);
+  }
+}
+
+@media (max-width: 520px) {
+  .form {
+    padding: 12px;
+  }
+
+  .field {
+    grid-template-columns: 78px minmax(0, 1fr);
+  }
+
+  .input {
+    width: 100%;
+  }
+}

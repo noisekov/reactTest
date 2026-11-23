@@ -1,15 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
-import './styles/global.scss';
+import App from '@/app/App';
+import '@/app/styles/global.scss';
 
-const container = document.getElementById('root');
+const rootElement = document.getElementById('root');
 
-if (!container) {
+if (!rootElement) {
   throw new Error('Не найден корневой элемент #root');
 }
 
-createRoot(container).render(
+createRoot(rootElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
