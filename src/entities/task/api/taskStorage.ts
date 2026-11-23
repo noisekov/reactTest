@@ -63,9 +63,5 @@ export function saveTasks(
 ): void {
   if (!storage) return;
 
-  try {
-    storage.setItem(TASK_STORAGE_KEY, JSON.stringify(tasks));
-  } catch {
-    // Например, браузер запретил storage или закончилось доступное место.
-  }
+  storage.setItem(TASK_STORAGE_KEY, JSON.stringify(tasks));
 }
