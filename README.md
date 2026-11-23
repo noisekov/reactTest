@@ -1,3 +1,3 @@
 # React + TypeScript + Webpack
 
-(Deploy)[https://noisekov.github.io/reactTest/]
+[Deploy](https://noisekov.github.io/reactTest/)
