@@ -104,3 +104,22 @@
     overflow-wrap: anywhere;
   }
 }
+
+@media (max-width: 1024px) {
+  .content {
+    gap: 6px;
+    padding: 10px 34px 10px 10px;
+  }
+
+  .metaRow,
+  .description {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .metaRow time {
+    white-space: nowrap;
+  }
+}

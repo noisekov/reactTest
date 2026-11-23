@@ -146,3 +146,42 @@
     width: 100%;
   }
 }
+
+
+@media (max-width: 1024px) {
+  .form {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .field {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .input,
+  .dateInput {
+    width: 100%;
+    max-width: none;
+  }
+
+  .error {
+    margin-left: 0;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .iconAction {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
+    padding: 8px;
+  }
+}

@@ -41,7 +41,6 @@ function getBrowserStorage(): StoragePort | null {
   }
 }
 
-/** Загружает сохранённые задачи; при отсутствии или повреждении данных — JSON fixture. */
 export function loadTasks(
   storage: StoragePort | null = getBrowserStorage(),
 ): Task[] {
@@ -58,7 +57,6 @@ export function loadTasks(
   }
 }
 
-/** Сохраняет текущее состояние. Ошибка хранилища не блокирует работу доски. */
 export function saveTasks(
   tasks: Task[],
   storage: StoragePort | null = getBrowserStorage(),

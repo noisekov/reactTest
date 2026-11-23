@@ -24,13 +24,33 @@
     color: var(--color-text-bold);
     font-size: clamp(23px, 2.4vw, 27px);
     font-weight: 750;
-    letter-spacing: -.035em;
+    letter-spacing: -0.035em;
     line-height: 1.1;
     text-shadow: 0 2px 16px rgb(0 0 0 / 35%);
   }
 }
 
 @media (max-width: 767px) {
-  .page { padding: 22px 18px; }
-  .header { margin-bottom: 19px; }
+  .page {
+    padding: 22px 18px;
+  }
+  .header {
+    margin-bottom: 19px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .header {
+    gap: 14px;
+    margin-bottom: 17px;
+
+    h1 {
+      font-size: 22px;
+    }
+  }
 }

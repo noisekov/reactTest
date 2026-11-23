@@ -6,13 +6,17 @@
   border-radius: 4px;
   background: var(--color-black-70);
   box-shadow: 0 16px 35px rgb(0 0 0 / 18%);
-  transition: background-color 160ms ease, border-color 160ms ease;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
 }
 
 .dragOver {
   border-color: rgb(1 132 207 / 72%);
   background: rgb(0 17 29 / 82%);
-  box-shadow: 0 0 0 1px rgb(1 132 207 / 16%), 0 12px 30px rgb(0 0 0 / 22%);
+  box-shadow:
+    0 0 0 1px rgb(1 132 207 / 16%),
+    0 12px 30px rgb(0 0 0 / 22%);
 }
 
 .header {
@@ -25,7 +29,8 @@
 
   h2 {
     display: flex;
-    min-width: 0;
+    flex: 0 0 auto;
+    min-width: max-content;
     align-items: center;
     gap: 7px;
     margin: 0;
@@ -33,13 +38,24 @@
     font-size: 15px;
     font-weight: 700;
     line-height: 1.2;
+    white-space: nowrap;
 
-    > span:first-child { width: 15px; height: 15px; }
+    > span:first-child {
+      flex: 0 0 auto;
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  > button {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 }
 
 .count {
   display: inline-grid;
+  flex: 0 0 auto;
   min-width: 19px;
   height: 19px;
   padding: 0 5px;
@@ -51,7 +67,10 @@
   font-weight: 600;
 }
 
-.cards { display: grid; gap: 8px; }
+.cards {
+  display: grid;
+  gap: 8px;
+}
 
 .dropPreview {
   display: grid;
@@ -74,8 +93,15 @@
 }
 
 @keyframes preview-enter {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .emptyState {
@@ -88,4 +114,66 @@
   color: var(--color-text-regular);
   font-size: 11px;
   text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .column {
+    padding: 11px 9px 12px;
+  }
+
+  .header {
+    gap: 4px;
+    margin-bottom: 10px;
+
+    h2 {
+      gap: 4px;
+      font-size: 12px;
+
+      > span:first-child {
+        width: 13px;
+        height: 13px;
+      }
+    }
+  }
+
+  .count {
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    font-size: 9px;
+  }
+
+  .cards {
+    gap: 7px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+  .header {
+    gap: 3px;
+
+    h2 {
+      gap: 3px;
+      font-size: 11px;
+
+      > span:first-child {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    > button {
+      gap: 3px;
+      padding-right: 2px;
+      padding-left: 2px;
+      font-size: 10px;
+    }
+  }
+
+  .count {
+    min-width: 16px;
+    height: 16px;
+    padding: 0 3px;
+    font-size: 9px;
+  }
 }
