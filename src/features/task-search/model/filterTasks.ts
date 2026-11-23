@@ -1,7 +1,6 @@
-import type { Task } from '../../../entities/task/model/task.types';
-import { toDateInputValue } from '../../../entities/task/model/task.utils';
+import type { Task } from "../../../entities/task/model/task.types";
+import { toDateInputValue } from "../../../entities/task/model/task.utils";
 
-/** Распознаёт только существующие календарные даты в формате dd.mm.yyyy. */
 function parseDateQuery(query: string): string | null {
   const match = query.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
   if (!match) return null;
@@ -13,26 +12,25 @@ function parseDateQuery(query: string): string | null {
     date.getMonth() === Number(month) - 1 &&
     date.getDate() === Number(day);
 
-  return isValid ? `${year}-${month}-${day}` : 'invalid-date';
+  return isValid ? `${year}-${month}-${day}` : "invalid-date";
 }
 
-/** Фильтрация по описанию или совпадению startDay/endDay. */
 export function filterTasks(tasks: readonly Task[], rawQuery: string): Task[] {
-  const query = rawQuery.trim().toLocaleLowerCase('ru-RU');
+  const query = rawQuery.trim().toLocaleLowerCase("ru-RU");
   if (!query) return [...tasks];
 
   const dateQuery = parseDateQuery(query);
   if (dateQuery !== null) {
-    if (dateQuery === 'invalid-date') return [];
+    if (dateQuery === "invalid-date") return [];
 
     return tasks.filter(
       (task) =>
         toDateInputValue(task.startDay) === dateQuery ||
-        toDateInputValue(task.endDay) === dateQuery
+        toDateInputValue(task.endDay) === dateQuery,
     );
   }
 
   return tasks.filter((task) =>
-    task.text.toLocaleLowerCase('ru-RU').includes(query)
+    task.text.toLocaleLowerCase("ru-RU").includes(query),
   );
 }

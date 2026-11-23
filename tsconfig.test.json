@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "Node16",
+    "moduleResolution": "Node16",
     "declaration": false,
     "sourceMap": false,
     "outDir": ".test-dist",
@@ -15,5 +15,9 @@
     "src/entities/task/model/task.types.ts",
     "src/features/task-search/model/filterTasks.ts"
   ],
-  "exclude": ["node_modules", "dist", ".test-dist"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".test-dist"
+  ]
 }

@@ -6,15 +6,23 @@
   background: var(--color-white-10);
   color: var(--color-text-bold);
   cursor: grab;
-  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
 
-  &:hover, &:focus-within {
+  &:hover,
+  &:focus-within {
     border-color: var(--color-blue);
     background: var(--color-white-10);
   }
 
-  &:hover { transform: translateY(-1px); }
-  &:active { cursor: grabbing; }
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .content {
@@ -30,7 +38,10 @@
   text-align: left;
   cursor: grab;
 
-  &:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+  &:focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 2px;
+  }
 }
 
 .dragging {
@@ -41,7 +52,6 @@
   transform: scale(0.985);
 }
 
-/* Просроченная задача выделяется красной рамкой; текст остаётся в обычной палитре. */
 .card.overdue,
 .card.overdue:hover,
 .card.overdue:focus-within {
@@ -60,16 +70,21 @@
   transition: opacity 140ms ease;
 }
 
-.card:hover .actions, .card:focus-within .actions {
+.card:hover .actions,
+.card:focus-within .actions {
   opacity: 1;
   pointer-events: auto;
 }
 
 @media (hover: none) {
-  .actions { opacity: 1; pointer-events: auto; }
+  .actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
-.metaRow, .description {
+.metaRow,
+.description {
   display: grid;
   grid-template-columns: 76px minmax(0, 1fr);
   gap: 8px;
@@ -77,8 +92,11 @@
   font-size: 11px;
   line-height: 1.45;
 
-  span { color: var(--color-text-regular); }
-  time, strong {
+  span {
+    color: var(--color-text-regular);
+  }
+  time,
+  strong {
     min-width: 0;
     color: var(--color-text-bold);
     font-size: inherit;
@@ -86,4 +104,3 @@
     overflow-wrap: anywhere;
   }
 }
-
