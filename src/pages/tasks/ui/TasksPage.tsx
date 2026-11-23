@@ -1,10 +1,13 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { Task, TaskDraft, TaskStatus } from '@/entities/task/model/task.types';
 import { filterTasks } from '@/features/task-search/model/filterTasks';
+import { TASK_SEARCH_DEBOUNCE_MS } from '@/features/task-search/model/taskSearch.constants';
+import { useDebouncedValue } from '@/features/task-search/model/useDebouncedValue';
 import { useTaskBoard } from '@/pages/tasks/model/useTaskBoard';
 import KanbanBoard from '@/widgets/kanban-board/ui/KanbanBoard';
 import TaskSearch from '@/features/task-search/ui/TaskSearch';
 import styles from './TasksPage.module.scss';
+
 
 type EditorState =
   | { mode: 'create'; status: TaskStatus }
@@ -15,10 +18,11 @@ function TasksPage() {
   const { tasks, createTask, updateTask, deleteTask, moveTask } = useTaskBoard();
   const [searchQuery, setSearchQuery] = useState('');
   const [editor, setEditor] = useState<EditorState>(null);
+  const debouncedSearchQuery = useDebouncedValue(searchQuery, TASK_SEARCH_DEBOUNCE_MS);
 
   const filteredTasks = useMemo(
-    () => filterTasks(tasks, searchQuery),
-    [tasks, searchQuery]
+    () => filterTasks(tasks, debouncedSearchQuery),
+    [tasks, debouncedSearchQuery]
   );
 
   const editingTaskId = editor?.mode === 'edit' ? editor.taskId : null;
